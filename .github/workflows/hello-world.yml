@@ -1,10 +1,24 @@
-name: Hello World
+name: Multi Job Example
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
-  say-hello:
+  first-job:
       runs-on: ubuntu-latest
       steps:
-        - name: Say Hello
-          run: echo "hello world"
+        - name: Say Hello from First Job
+          run: echo "This is the First Job!"
+  
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello from Second Job
+        run: echo "This is the Second Job, after First Job!"
+  parallel-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello from Parallel Job
+        run: echo "This is the Parallel Job, runs without waiting!"
+      
