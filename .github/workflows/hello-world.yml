@@ -1,4 +1,4 @@
-name: Parallel Jobs and Merge Outputs
+name: 複数のjobの組み合わせ
 
 on:
   workflow_dispatch:
